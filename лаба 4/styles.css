@@ -1,0 +1,572 @@
+/* ========== СПОСОБ 1: ИМПОРТ (подключаем второй файл) ========== */
+@import url('imported.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+/* СИНТАКСИС CSS */
+/* Правило: селектор { свойство: значение; } */
+
+/*  1. УНИВЕРСАЛЬНЫЙ СЕЛЕКТОР  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*  2. СЕЛЕКТОР ТЕГА  */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/*  3. СЕЛЕКТОР КЛАССА  */
+.external-demo {
+    background: #FFD700;
+    padding: 20px;
+    border: 4px solid #FF4500;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #333;
+    margin: 20px 0;
+    text-align: center;
+    animation: blink 2s infinite;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/*  4. СЕЛЕКТОР ID  */
+#start {
+    border-bottom: 3px solid #ff6b6b;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#video {
+    border-left: 5px solid #ff6b6b;
+    padding-left: 20px;
+    margin: 30px 0;
+}
+
+/*  5. ДОЧЕРНИЙ СЕЛЕКТОР */
+nav > ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color: #ff6b6b;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+nav > ul > li > a:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+/*  6. СОСЕДНИЙ СЕЛЕКТОР  */
+h2 + p {
+    font-style: italic;
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+h3 + ol, h3 + ul {
+    margin-top: 10px;
+}
+
+/*  7. СЕЛЕКТОР АТРИБУТА */
+input[type="text"] {
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #e74c3c;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+input[type="email"] {
+    border: 2px solid #9b59b6;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+input[type="radio"] {
+    transform: scale(1.2);
+    margin-right: 5px;
+}
+
+/*  8. ПСЕВДОКЛАСС  */
+a:hover {
+    color: #ff6b6b;
+    text-decoration: underline;
+}
+
+tr:hover {
+    background: #ffeaa7 !important;
+    transition: all 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/*  9. ПСЕВДОЭЛЕМЕНТ */
+p::first-letter {
+    font-size: 1.5em;/* относитнльная единица*/
+    color: #ff6b6b;
+    font-weight: bold;
+    margin-right: 2px;
+}
+
+li::marker {
+    color: #ff6b6b;
+}
+
+/*  10. КОНТЕКСТНЫЙ СЕЛЕКТОР  */
+.gallery img {
+    border-radius: 15px;
+    transition: all 0.3s;
+    border: 4px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.gallery img:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    border-color: #ff6b6b;
+}
+
+.gallery figcaption {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* ========== ЕДИНИЦЫ ИЗМЕРЕНИЯ ========== */
+/* Абсолютные: px */
+h1 {
+    font-size: 3rem; /* rem - относительно корня */
+    margin-bottom: 0.5em; /* em - относительно текущего шрифта */
+    text-align: center;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+section {
+    width: 90%; /* % - относительно родителя */
+    max-width: 1200px; /* px - абсолютный */
+    margin: 2vh auto; /* vh - процент от высоты экрана */
+    padding: 20px; /* px - абсолютный */
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Вычисляемые: calc() */
+.container {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+/* ========== ШРИФТЫ (нестандартные) ========== */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+p, li, td, label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+/* ========== ЦВЕТ И ФОН ========== */
+h2 {
+    color: #2c3e50;
+    border-bottom: 3px solid #ff6b6b;
+    padding-bottom: 10px;
+    margin: 30px 0 20px;
+}
+
+mark {
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* ========== ОФОРМЛЕНИЕ ТЕКСТА ========== */
+strong {
+    font-weight: 700;
+    color: #c0392b;
+}
+
+em {
+    font-style: italic;
+    color: #2980b9;
+}
+
+del {
+    text-decoration: line-through;
+    color: #7f8c8d;
+    background-color: #f8f9fa;
+}
+
+ins {
+    text-decoration: underline;
+    background-color: #d4edda;
+}
+
+u {
+    text-decoration: underline wavy #ff6b6b;
+}
+
+/* ========== СТИЛИЗАЦИЯ ГИПЕРССЫЛОК ========== */
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+a:visited {
+    color: #9b59b6;
+}
+
+a:active {
+    color: #27ae60;
+}
+
+/* Эффект при наведении */
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff6b6b;
+    transition: width 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* ========== ОФОРМЛЕНИЕ ИЗОБРАЖЕНИЙ ========== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    border: 3px solid white;
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+figure {
+    display: inline-block;
+    margin: 15px;
+    padding: 10px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ========== СТИЛИЗАЦИЯ СПИСКОВ ========== */
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+/* Собственный графический маркер */
+ul li {
+    position: relative;
+    padding-left: 25px;
+    margin: 8px 0;
+}
+
+ul li::before {
+    content: "🐕";
+    position: absolute;
+    left: 0;
+    color: #ff6b6b;
+    font-size: 1.2em;
+}
+
+/* Вложенные списки */
+ul ul li::before {
+    content: "🐩";
+    left: 0;
+}
+
+ol {
+    padding-left: 30px;
+}
+
+ol li {
+    margin: 8px 0;
+    color: #2c3e50;
+}
+
+ol[start="4"] {
+    background: #f8f9fa;
+    padding: 20px 20px 20px 40px;
+    border-radius: 10px;
+}
+
+/* Список определений */
+dt {
+    font-weight: bold;
+    color: #ff6b6b;
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+dd {
+    margin-left: 30px;
+    color: #666;
+    font-style: italic;
+    padding: 5px 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* ========== СТИЛИЗАЦИЯ ТАБЛИЦ ========== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+/* Чередование цветов строк (зебра) */
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+td[rowspan] {
+    background: #ffeaa7;
+    font-weight: bold;
+}
+
+tfoot td {
+    background: #dfe6e9;
+    font-style: italic;
+    text-align: center;
+}
+
+caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* ========== СТИЛИЗАЦИЯ ФОРМ И КНОПОК ========== */
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+fieldset {
+    border: 2px solid #ecf0f1;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+}
+
+label {
+    display: inline-block;
+    margin: 5px 0;
+    color: #34495e;
+    font-weight: 600;
+}
+
+input, select, textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    margin: 8px 0 15px;
+    border: 2px solid #ecf0f1;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 10px rgba(255,107,107,0.2);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+/* Кнопки */
+button, input[type="submit"], input[type="reset"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 10px 0 0;
+    width: auto;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+}
+
+button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(102,126,234,0.5);
+}
+
+button:active, input[type="submit"]:active, input[type="reset"]:active {
+    transform: translateY(0);
+}
+
+input[type="reset"] {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+input[type="radio"], input[type="checkbox"] {
+    width: auto;
+    margin: 0 5px 0 0;
+    transform: scale(1.2);
+}
+
+/* ========== СТИЛИ ДЛЯ iframe ========== */
+iframe {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    max-width: 100%;
+}
+
+/* ========== АНИМАЦИЯ И ТРАНСФОРМАЦИЯ ========== */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; background: #FFA500; }
+    100% { opacity: 1; background: #FFD700; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Анимация для заголовков */
+h1 {
+    animation: slideIn 1s ease-out;
+}
+
+/* Анимация при наведении */
+.gallery figure {
+    transition: all 0.3s ease;
+}
+
+.gallery figure:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Трансформация */
+button {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ========== КАСКАДНОСТЬ И ПРИОРИТЕТЫ ========== */
+/* Общий стиль для p */
+p {
+    color: #333;
+    font-size: 16px;
+}
+
+/* Более специфичный - переопределяет */
+.highlight-box p {
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+/* Еще более специфичный */
+#start p {
+    color: #666;
+}
+
+/* !important - самый высокий приоритет */
+.important-demo {
+    color: green !important;
+}

@@ -1,0 +1,13 @@
+/* ЗАДАНИЕ 1: Оформление тега body (внешний файл) */
+body {
+    /* Фоновое изображение на весь экран */
+    background-image: url('fon.jpg'); 
+    background-repeat: no-repeat;  /* Не дублировать картинку */
+    background-size: cover;        /* Растянуть, чтобы закрыть весь экран */
+    background-attachment: fixed;  /* Фон остается на месте при прокрутке */
+    
+    /* Параметры текста по заданию */
+    font-family: "Times New Roman", serif; /* Шрифт  */
+    font-size: 14pt;                       /* Размер шрифта */
+    color: red;                            /* Основной цвет текста - красный */
+}

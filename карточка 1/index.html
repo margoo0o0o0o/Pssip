@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Пац Маргарита Дмитриевна — Вариант 14</title>
+    <!-- Установка шрифта Arial и размера 11pt для всей страницы -->
+    <style>
+        body {
+            font-family: Arial;
+            font-size: 11pt;
+        }
+    </style>
+</head>
+<!-- Желтый фон страницы -->
+<body style="background-color: yellow;">
+
+    <!-- Ссылка-якорь для перехода к таблице -->
+    <a href="#table_data">Перейти к таблице посещений</a>
+    <hr>
+
+    <!-- Заголовок с именем, подчеркнутый и по центру -->
+    <h1 align="center"><u>Пац Маргарита Дмитриевна</u></h1>
+    
+    <!-- Группа и вариант с зачеркиванием, зеленым цветом и курсивом -->
+    <p>
+        <font color="green"><i><strike>Группа: 14 вариант</strike></i></font>
+    </p>
+    
+    <!-- Курс со степенью 2 (верхний индекс) -->
+    <p align="center">Курс: <sup>3</sup></p>
+    
+    <!-- Увлечения синим цветом и жирным шрифтом -->
+    <p align="left">
+        <b><font color="blue">Мои увлечения: Программирование на C#, дизайн в Photoshop и веб-разработка.</font></b>
+    </p>
+
+    <hr>
+
+    <!-- Список определений: Дескриптор, Атрибут, Метка -->
+    <dl>
+        <dt>Дескриптор</dt>
+        <dd>Основная единица языка разметки, известная всем как "Тег"</dd>
+        
+        <dt>Атрибут</dt>
+        <dd>Свойство тега, дающее ему дополнительные возможности оформления текста</dd>
+        
+        <dt>Метка</dt>
+        <dd>Одиночный тег, который не нужно закрывать</dd>
+    </dl>
+
+    <hr>
+
+    <!-- Изображение без подписи, размер 200x200, обтекание слева -->
+    <img src="R.jpg" width="200" height="200" align="left" alt="">
+    <!-- Очистка обтекания -->
+    <br clear="left">
+
+    <hr>
+
+    <!-- Ссылка на почту (открывается в новой вкладке) -->
+    <p>Связь со мной: <a href="https://e.mail.ru/inbox/" target="_blank">pats.m@bk.ru</a></p>
+
+    <hr>
+
+    <!-- Таблица посещений браузеров -->
+    <!-- id="table_data" для якоря, вся таблица на белом фоне -->
+    <table id="table_data" border="1" width="500" cellpadding="5" cellspacing="0" bgcolor="white">
+        <!-- Первая строка: объединенная ячейка "Браузер" (серая) и "Посещения" -->
+        <tr>
+            <th rowspan="2" bgcolor="gray">Браузер</th>
+            <th colspan="2">Посещения</th>
+        </tr>
+        <!-- Вторая строка: подзаголовки "Количество" и "Проценты" -->
+        <tr>
+            <th>Количество</th>
+            <th>Проценты</th>
+        </tr>
+        <!-- Данные для Mozilla -->
+        <tr>
+            <td>Mozilla</td>
+            <td>163</td>
+            <td>59</td>
+        </tr>
+        <!-- Данные для Chrome -->
+        <tr>
+            <td>Chrome</td>
+            <td>78</td>
+            <td>26</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- Форма обратной связи -->
+    <form>
+        <table border="0">
+            <!-- Поле: Ваше имя -->
+            <tr>
+                <td align="right">Ваше имя:</td>
+                <td><input type="text" name="user_name" size="30"></td>
+            </tr>
+            <!-- Поле: E-Mail -->
+            <tr>
+                <td align="right">E-Mail:</td>
+                <td><input type="text" name="user_email" size="30"></td>
+            </tr>
+            <!-- Поле: Заголовок -->
+            <tr>
+                <td align="right">Заголовок:</td>
+                <td><input type="text" name="subject" size="30"></td>
+            </tr>
+            <!-- Выпадающий список: Получатель -->
+            <tr>
+                <td align="right">Получатель:</td>
+                <td>
+                    <select name="department">
+                        <option value="1">Отдел заказов</option>
+                        <option value="2">Техническая поддержка</option>
+                    </select>
+                </td>
+            </tr>
+            <!-- Поле для сообщения с прокруткой (scrollbar) -->
+            <tr>
+                <td align="right" valign="top">Сообщение:</td>
+                <td>
+                    <textarea cols="35" rows="5" wrap="soft" style="overflow: auto;"></textarea>
+                </td>
+            </tr>
+            <!-- Кнопки: Отправить и Сбросить -->
+            <tr>
+                <td></td>
+                <td>
+                    <br>
+                    <input type="submit" value="Отправить">
+                    <input type="reset" value="Сбросить">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

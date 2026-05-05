@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вариант 12 - Пац Маргарита</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        @import url('import.css');
+    </style>
+    
+    <style>
+        .hobby-block {
+            background-color: green;      /* Цвет фона - зеленый */
+            width: 500px;                 /* Ширина блока */
+            height: 500px;                /* Высота блока */
+            display: flex;                /* Используем гибкую верстку для центровки */
+            align-items: center;          /* Выравнивание по центру вертикально */
+            justify-content: center;       /* Выравнивание по центру горизонтально */
+            text-align: center;            /* Текст внутри тоже по центру */
+            color: white;                 /* Цвет текста внутри блока */
+            margin-top: 20px;
+        }
+    </style>
+    
+    <style>
+        #birthDate::first-letter {
+            color: yellow;                /* Цвет первой буквы - желтый */
+            font-style: italic;           /* Шрифт - курсив */
+            font-size: 30pt;              /* Размер буквы (сделан крупным для наглядности) */
+            text-decoration: underline !important; /* Подчеркивание (важнее зачеркивания) */
+            display: inline-block;        /* Позволяет убрать зачеркивание с этой буквы */
+        }
+    </style>
+</head>
+<body>
+    <p>Пац Маргарита Дмитриевна</p>
+    
+    <div id="birthDate">28.05.2008</div>
+    
+    <div class="hobby-block">
+        <div>
+            <p>Мои увлечения:</p>
+            <p>Книги, прогулки, музыка, танцы</p>
+        </div>
+    </div>
+</body>
+</html>

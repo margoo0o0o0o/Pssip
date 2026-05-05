@@ -1,0 +1,40 @@
+/* ========== СПОСОБ 1: ИМПОРТИРОВАННЫЙ ФАЙЛ ========== */
+/* Этот файл подключен через @import в styles.css */
+
+.imported-demo {
+    background: #E6E6FA;
+    padding: 20px;
+    border: 4px solid #9370DB;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #4B0082;
+    margin: 20px 0;
+    text-align: center;
+    font-style: italic;
+    box-shadow: 0 5px 15px rgba(147,112,219,0.3);
+}
+
+/* Дополнительные стили для демонстрации */
+audio, video {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin: 10px 0;
+}
+
+progress, meter {
+    width: 100%;
+    max-width: 400px;
+    height: 25px;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f0f0f0;
+    border-radius: 15px;
+}
+
+progress::-webkit-progress-value {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+}
