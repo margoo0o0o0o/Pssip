@@ -1,0 +1,183 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px 0;
+}
+
+/*  2. Адаптивная структура макета (НАСТОЛЬНЫЙ ВАРИАНТ по умолчанию) */
+.container {
+    width: 100%;             /* Резиновая ширина */
+    max-width: 1280px;       /* Ограничение по ТЗ для десктопа */
+    min-width: 800px;        /* Минимальный порог десктопа по ТЗ */
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 равные колонки */
+    grid-template-rows: 1fr auto;          /* Высота подстраивается под контент */
+    gap: 12px;
+    padding: 12px;
+}
+
+/* Общие маркерные стили блоков */
+.grid-block {
+    padding: 20px;
+    border: 2px solid #333333;
+    color: #ffffff;
+    overflow: auto;
+}
+
+/* Цветовая заливка */
+.block-1 { background-color: #34495e; }
+.block-2 { background-color: #2980b9; }
+.block-3 { background-color: #27ae60; }
+.block-4 { background-color: #d35400; }
+
+/* Блок 5: На десктопе занимает все 4 колонки */
+.block-5 {
+    background-color: #8e44ad;
+    grid-column: 1 / span 4;
+    height: auto;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* Адаптивность изображений */
+.content-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 15px;
+}
+
+/*   3. ПЛАНШЕТНЫЙ ВАРИАНТ (Экран от 480px до 800px) */
+@media screen and (min-width: 480px) and (max-width: 800px) {
+    .container {
+        min-width: 100%;     /* Сбрасываем десктопное ограничение */
+        max-width: 720px;    /* Ширина по умолчанию для планшета по ТЗ */
+        
+        /* Перестраиваем сетку на 2 колонки и 3 автоматические строки */
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto auto;
+    }
+
+    /* Блоки автоматичеки распределяются по 1 колонке (из 2 доступных) */
+    .block-1 { grid-column: auto; }
+    .block-2 { grid-column: auto; }
+    .block-3 { grid-column: auto; }
+    .block-4 { grid-column: auto; }
+
+    /* Блок 5 на планшете перекрывает обе колонки (встает на всю ширину нижнего ряда) */
+    .block-5 {
+        grid-column: 1 / span 2; 
+        padding: 20px 0;
+    }
+}
+
+/* ==========================================================================
+   4. Точная стилизация формы авторизации
+   ========================================================================== */
+.auth-card {
+    width: 290px;
+    background-color: #e5e5e5;
+    border: 1px solid #b5b5b5;
+    border-radius: 6px;
+    padding: 16px 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.auth-title {
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-field input[type="text"],
+.form-field input[type="password"] {
+    width: 100%;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: #333333;
+    background-color: #f0f0f0;
+    border: 1px solid #a0a0a0;
+    border-radius: 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    color: #333333;
+    padding-left: 2px;
+}
+
+.form-checkbox input {
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 2px;
+}
+
+.auth-btn {
+    flex: 1;
+    padding: 5px 0;
+    font-size: 13px;
+    color: #333333;
+    border: 1px solid #959595;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, #ffffff 0%, #eaeaea 40%, #dcdcdc 100%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    text-align: center;
+}
+
+.auth-btn:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 40%, #cccccc 100%);
+}
+
+.form-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 6px;
+    padding-left: 2px;
+}
+
+.form-links a {
+    font-size: 11px;
+    color: #2b2b85; 
+    text-decoration: none;
+    font-style: italic;
+    text-align: left;
+    width: max-content;
+}
+
+.form-links a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
