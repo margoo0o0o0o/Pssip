@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>4 способа внедрения JS + 9 операторов</title>
+    
+    <!-- СПОСОБ 1: ВНУТРЕННИЙ (в секции <head>)                    -->
+    <script>
+        // Функция доступна на всей странице
+        
+        function showHeadMessage() {
+            alert("Привет! Это внутренний скрипт из <head>");
+        }
+        
+        function getGreeting(name) {
+            return "Привет, " + name + "!";
+        }
+        
+        console.log("Внутренний скрипт в head загружен");
+    </script>
+    
+</head>
+<body>
+
+    <h1>4 способа внедрения JavaScript + 9 операторов</h1>
+    <hr>
+
+    <!-- СПОСОБ 2: INLINE (в атрибутах HTML-элементов)             -->
+    <h2>Способ 2: Inline (код прямо в атрибутах)</h2>
+    
+    <!-- Пример 1: простой alert -->
+    <button onclick="alert('Это INLINE скрипт!')">
+        Нажми (inline alert)
+    </button>
+    
+    <!-- Пример 2: с prompt -->
+    <button onclick="
+        let name = prompt('Введите имя:');
+        if (name) {
+            alert('Привет, ' + name + '!');
+        } else {
+            alert('Вы не ввели имя');
+        }
+    ">
+        Ввести имя (inline)
+    </button>
+    
+    <!-- Пример 3: с изменением элемента -->
+    <button onclick="
+        document.getElementById('inline-result').innerHTML = 'Кнопка нажата в ' + new Date().toLocaleTimeString();
+    ">
+        Показать время (inline)
+    </button>
+    <p id="inline-result">Результат появится здесь</p>
+    
+    <hr>
+
+    <!-- ДЕМОНСТРАЦИЯ 9 ОПЕРАТОРОВ                                -->
+
+    <h2>9 операторов JavaScript</h2>
+    <hr>
+
+    <!-- СПОСОБ 3: БЛОЧНЫЙ (внутренний в секции <body>)           -->
+    
+    <!-- ПРИМЕР 1: if -->
+    <h3>1. Оператор if</h3>
+    <button onclick="exampleIf()">Запустить if</button>
+    <p id="output1">Нажмите кнопку</p>
+    <hr>
+
+    <!-- ПРИМЕР 2: if/else -->
+    <h3>2. Оператор if/else</h3>
+    <button onclick="exampleIfElse()">Запустить if/else</button>
+    <p id="output2">Нажмите кнопку</p>
+    <hr>
+
+    <!-- ПРИМЕР 3: if/else if/else -->
+    <h3>3. Оператор if/else if/else</h3>
+    <button onclick="exampleIfElseIf()">Запустить if/else if/else</button>
+    <p id="output3">Нажмите кнопку</p>
+    <hr>
+
+    <!-- ПРИМЕР 4: switch -->
+    <h3>4. Оператор switch</h3>
+    <button onclick="exampleSwitch()">Запустить switch</button>
+    <p id="output4">Нажмите кнопку</p>
+    <hr>
+
+    <!-- ПРИМЕР 5: for -->
+    <h3>5. Цикл for</h3>
+    <button onclick="exampleFor()">Запустить for</button>
+    <p id="output5">Нажмите кнопку</p>
+    <hr>
+
+    <!-- ПРИМЕР 6: while -->
+    <h3>6. Цикл while</h3>
+    <button onclick="exampleWhile()">Запустить while</button>
+    <p id="output6">Нажмите кнопку</p>
+    <hr>
+
+    <!-- ПРИМЕР 7: do...while -->
+    <h3>7. Цикл do...while</h3>
+    <button onclick="exampleDoWhile()">Запустить do...while</button>
+    <p id="output7">Нажмите кнопку</p>
+    <hr>
+
+    <!-- ПРИМЕР 8: break -->
+    <h3>8. Оператор break</h3>
+    <button onclick="exampleBreak()">Запустить break</button>
+    <p id="output8">Нажмите кнопку</p>
+    <hr>
+
+    <!-- ПРИМЕР 9: continue и return -->
+    <h3>9. Операторы continue и return</h3>
+    <button onclick="exampleContinueReturn()">Запустить continue и return</button>
+    <p id="output9">Нажмите кнопку</p>
+    <hr>
+
+    
+    <!-- СПОСОБ 3: БЛОЧНЫЙ                              -->
+    <script>
+        //  (БЛОЧНЫЙ СКРИПТ)
+        
+        // 1. if
+        function exampleIf() {
+            let age = prompt("Введите ваш возраст:");
+            let output = document.getElementById('output1');
+            
+            if (age >= 18) {
+                output.innerHTML = "✅ Вам " + age + " лет. Доступ разрешен!";
+            } else {
+                output.innerHTML = "❌ Вам " + age + " лет. Доступ запрещен!";
+            }
+        }
+
+        // 2. if/else
+        function exampleIfElse() {
+            let now = new Date();
+            let hours = now.getHours();
+            let output = document.getElementById('output2');
+            
+            if (hours < 12) {
+                output.innerHTML = "🌅 Доброе утро! Сейчас " + hours + ":00";
+            } else {
+                output.innerHTML = "🌇 Добрый день! Сейчас " + hours + ":00";
+            }
+        }
+
+        // 3. if/else if/else
+        function exampleIfElseIf() {
+            let score = prompt("Введите ваш балл (0-100):");
+            let output = document.getElementById('output3');
+            
+            if (score >= 90) {
+                output.innerHTML = "⭐ Отлично! Ваш балл: " + score;
+            } else if (score >= 70) {
+                output.innerHTML = "👍 Хорошо! Ваш балл: " + score;
+            } else if (score >= 50) {
+                output.innerHTML = "📖 Удовлетворительно. Ваш балл: " + score;
+            } else {
+                output.innerHTML = "❌ Неудовлетворительно. Ваш балл: " + score;
+            }
+        }
+
+        // 4. switch
+        function exampleSwitch() {
+            let day = new Date().getDay();
+            let output = document.getElementById('output4');
+            let dayName = "";
+            
+            switch (day) {
+                case 0: dayName = "Воскресенье 😴"; break;
+                case 1: dayName = "Понедельник 😫"; break;
+                case 2: dayName = "Вторник 📚"; break;
+                case 3: dayName = "Среда 📚"; break;
+                case 4: dayName = "Четверг 📚"; break;
+                case 5: dayName = "Пятница 🎉"; break;
+                case 6: dayName = "Суббота 🎊"; break;
+                default: dayName = "Неизвестный день";
+            }
+            output.innerHTML = "Сегодня: " + dayName;
+        }
+
+        // 5. for
+        function exampleFor() {
+            let output = document.getElementById('output5');
+            let result = "";
+            
+            for (let i = 1; i <= 10; i++) {
+                result += i + " ";
+            }
+            
+            output.innerHTML = "Числа от 1 до 10: <br><b>" + result + "</b>";
+        }
+
+        // 6. while
+        function exampleWhile() {
+            let output = document.getElementById('output6');
+            let result = "";
+            let i = 1;
+            
+            while (i <= 10) {
+                result += i + " ";
+                i++;
+            }
+            
+            output.innerHTML = "Числа от 1 до 10: <br><b>" + result + "</b>";
+        }
+
+        // 7. do...while
+        function exampleDoWhile() {
+            let output = document.getElementById('output7');
+            let result = "";
+            let i = 1;
+            
+            do {
+                result += i + " ";
+                i++;
+            } while (i <= 10);
+            
+            output.innerHTML = "Числа от 1 до 10: <br><b>" + result + "</b>";
+            
+            // Демонстрация что do...while выполнится хотя бы 1 раз
+            let j = 20;
+            let demo = "";
+            do {
+                demo = "Цикл do...while выполнился 1 раз, хотя условие ложно (j=20)";
+            } while (j <= 10);
+            
+            output.innerHTML += "<br><br>🔹 " + demo;
+        }
+
+        // 8. break
+        function exampleBreak() {
+            let output = document.getElementById('output8');
+            let result = "";
+            
+            for (let i = 1; i <= 10; i++) {
+                if (i === 5) {
+                    result += " [СТОП!] ";
+                    break;
+                }
+                result += i + " ";
+            }
+            
+            output.innerHTML = "Цикл прерван на 5: <br><b>" + result + "</b>";
+        }
+
+        // 9. continue и return
+        function exampleContinueReturn() {
+            let output = document.getElementById('output9');
+            let result1 = "";
+            let result2 = "";
+            
+            // continue
+            result1 += "🔹 continue - пропускает четные числа:<br>";
+            for (let i = 1; i <= 10; i++) {
+                if (i % 2 === 0) {
+                    continue;
+                }
+                result1 += i + " ";
+            }
+            result1 += "<br>(только НЕЧЕТНЫЕ числа)<br><br>";
+            
+            // return
+            function multiply(a, b) {
+                return a * b;
+            }
+            
+            function sum(a, b) {
+                return a + b;
+            }
+            
+            result2 += "🔹 return - возвращает значение:<br>";
+            result2 += "7 * 8 = " + multiply(7, 8) + "<br>";
+            result2 += "15 + 25 = " + sum(15, 25);
+            
+            // Функция без return
+            function noReturn() {
+                let x = 10 + 5;
+            }
+            let noReturnResult = noReturn();
+            result2 += "<br>Функция без return возвращает: " + noReturnResult + " (undefined)";
+            
+            output.innerHTML = result1 + result2;
+        }
+
+        // =============================================
+        // ДОПОЛНИТЕЛЬНЫЙ ВЫВОД ПРИ ЗАГРУЗКЕ
+        // =============================================
+        document.write("<p style='color: blue;'>Этот текст добавлен БЛОЧНЫМ скриптом (внутренний в body)</p>");
+        
+        console.log("Блочный скрипт загружен!");
+        
+    </script>
+    
+    <hr>
+
+    <!-- СПОСОБ 4: ВНЕШНИЙ (отдельный файл)                        -->
+    <h2>Способ 4: Внешний файл (script.js)</h2>
+    
+    <!-- Подключаем внешний файл -->
+    <script src="script.js"></script>
+    
+    <!-- Кнопка, которая вызывает функцию из внешнего файла -->
+    <button onclick="showExternalMessage()">
+        Функция из внешнего файла
+    </button>
+    
+    <button onclick="showDate()">
+        Показать дату (внешний файл)
+    </button>
+    
+    <hr>
+
+</body>
+</html>
