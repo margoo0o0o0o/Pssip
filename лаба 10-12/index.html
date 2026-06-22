@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вариант №14 - Лабораторная работа JS</title>
+    
+    
+    <!-- ЗАДАНИЕ 1: РАБОТА С ОБЪЕКТОМ Date - Ссособ внедрения: Скрипт в Head, вызывается по кнопке -->
+
+    <script>
+        // Функция для задания 1
+        function showTime() {
+            let now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            
+            // Форматируем часы и минуты (добавляем ведущий ноль)
+            let formattedHours = String(hours).padStart(2, '0');
+            let formattedMinutes = String(minutes).padStart(2, '0');
+            
+            let timeString = formattedHours + "-" + formattedMinutes;
+            
+            // Вывод в диалоговое окно
+            alert("Текущее время: " + timeString);
+            
+            // Дополнительно выводим на страницу
+            document.getElementById('result1').innerHTML = 
+                " Время: " + timeString;
+        }
+        
+        console.log("Задание 1: Скрипт в Head загружен");
+    </script>
+    
+</head>
+<body>
+
+    <h1>Вариант №14</h1>
+    <p>Темы: Синтаксис и операторы JS, встроенные объекты, способы внедрения скриптов</p>
+    <hr>
+
+    <!-- ЗАДАНИЕ 1: ВЫВОД ВРЕМЕНИ                              -->
+    <h2>Задание 1. Работа с объектом Date (1.5 балла)</h2>
+    <p><b>Условие:</b> Вывести в диалоговое окно дату в формате часы-минуты</p>
+    <p><b>Способ внедрения:</b> Скрипт в Head, вызов по кнопке</p>
+    
+    <button onclick="showTime()">Показать время</button>
+    <p id="result1">Нажмите кнопку</p>
+    <hr>
+
+    <!-- ЗАДАНИЕ 2: ЦИКЛ WHILE                                 -->
+    <h2>Задание 2. Работа с операторами циклов (1 балл)</h2>
+    <p><b>Условие:</b> Вывести на экран «группа ПЗТ» 33 раза. Использовать while</p>
+    <p><b>Способ внедрения:</b> Скрипт в Body</p>
+    
+    <button onclick="showGroup()">Показать группу 33 раза</button>
+    <div id="result2" style="max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-top: 10px;">
+        Нажмите кнопку
+    </div>
+    <hr>
+
+    <!-- ЗАДАНИЕ 3: МАССИВ И ПРОИЗВЕДЕНИЕ                     -->
+    <h2>Задание 3. Работа с объектом Array (2.5 балла)</h2>
+    <p><b>Условие:</b> Сформировать массив из 5 целых элементов. Подсчитать произведение положительных элементов.</p>
+    <p><b>Способ внедрения:</b> Скрипт в Body</p>
+    
+    <button onclick="calculateProduct()">Рассчитать произведение</button>
+    <div id="result3" style="margin-top: 10px; padding: 10px; border: 1px solid #ccc;">
+        Нажмите кнопку
+    </div>
+    <hr>
+
+    <!-- ЗАДАНИЕ 4: РАСЧЕТ ПО ФОРМУЛЕ (ВНЕШНИЙ ФАЙЛ)          -->
+    <h2>Задание 4. Работа с объектом Math (3 балла)</h2>
+    <p><b>Условие:</b></p>
+    <ol>
+        <li>Расчет по формуле: <b>(b² - π) / |a - 4| + 7√(c + π)</b></li>
+        <li>Пользовательская функция</li>
+        <li>Использование return</li>
+        <li>Результат в теле HTML-документа</li>
+    </ol>
+    <p><b>Способ внедрения:</b> Внешний файл *.js</p>
+    
+    <!-- Подключаем внешний файл для задания 4 -->
+    <script src="script.js"></script>
+    
+    <button onclick="calculateFormula()">Выполнить расчет</button>
+    <button onclick="showFormulaInfo()">Показать формулу</button>
+    <div id="result4" style="margin-top: 10px; padding: 10px; border: 1px solid #ccc;">
+        Нажмите кнопку
+    </div>
+    <hr>
+
+    <!-- ЗАДАНИЕ 5: РАБОТА СО СТРОКАМИ                        -->
+    <h2>Задание 5. Работа со строками String (3 балла)</h2>
+    <p><b>Условие:</b></p>
+    <ul>
+        <li>s1 = "Я – будущий программист"</li>
+        <li>s2 = "У меня всё получится"</li>
+        <li>1. Определить длину строки s2</li>
+        <li>2. Выделить п-ый символ в s1 (п=14) и определить его ASCII-код</li>
+        <li>3. Заменить в s1 все "у" на "й"</li>
+    </ul>
+    <p><b>Способ внедрения:</b> Любой (используем блочный)</p>
+    
+    <button onclick="workWithStrings()">Работа со строками</button>
+    <div id="result5" style="margin-top: 10px; padding: 10px; border: 1px solid #ccc;">
+        Нажмите кнопку
+    </div>
+    <hr>
+
+
+    <!-- БЛОЧНЫЙ СКРИПТ (Задания 2, 3, 5)                    -->
+    <script>
+        // ЗАДАНИЕ 2: ЦИКЛ WHILE (1 балл)
+        function showGroup() {
+            let output = document.getElementById('result2');
+            let result = "";
+            let i = 0;
+            
+            // Используем цикл while для вывода 33 раз
+            while (i < 33) {
+                result += (i + 1) + ". группа ПЗТ<br>";
+                i++;
+            }
+            
+            output.innerHTML = result;
+        }
+
+        // ЗАДАНИЕ 3: МАССИВ И ПРОИЗВЕДЕНИЕ (2.5 балла)
+        function calculateProduct() {
+            let output = document.getElementById('result3');
+            
+            // 1. Формируем массив из 5 целых элементов
+            let numbers = [];
+            
+            // Запрашиваем у пользователя 5 чисел
+            for (let i = 0; i < 5; i++) {
+                let num = prompt("Введите целое число №" + (i + 1) + ":");
+                // Преобразуем в число и добавляем в массив
+                numbers.push(parseInt(num));
+            }
+            
+            // 2. Выводим массив
+            let arrayString = "Массив: [" + numbers.join(", ") + "]";
+            
+            // 3. Подсчитываем произведение положительных элементов
+            let product = 1;
+            let hasPositive = false;
+            let positives = [];
+            
+            for (let i = 0; i < numbers.length; i++) {
+                if (numbers[i] > 0) {
+                    product *= numbers[i];
+                    hasPositive = true;
+                    positives.push(numbers[i]);
+                }
+            }
+            
+            // 4. Формируем результат
+            let result = arrayString + "<br>";
+            
+            if (hasPositive) {
+                result += "Положительные элементы: [" + positives.join(", ") + "]<br>";
+                result += " Произведение положительных элементов = <b>" + product + "</b>";
+            } else {
+                result += " Нет положительных элементов<br>";
+                result += "Произведение = <b>0</b>";
+            }
+            
+            output.innerHTML = result;
+        }
+
+        // ЗАДАНИЕ 5: РАБОТА СО СТРОКАМИ (3 балла)
+        function workWithStrings() {
+            let output = document.getElementById('result5');
+            
+            // Исходные строки
+            let s1 = "Я – будущий программист";
+            let s2 = "У меня всё получится";
+            
+            // Номер варианта (п)
+            let n = 14;
+            
+            let result = "";
+            
+            // 1. Определяем длину строки s2
+            let lengthS2 = s2.length;
+            result += " Длина строки s2 = " + lengthS2 + "<br>";
+            
+            // 2. Выделяем n-ый символ в s1 (n = 14)
+            // В JavaScript индексация начинается с 0, поэтому n-ый символ имеет индекс n-1
+            let index = n - 1;
+            
+            if (index < s1.length) {
+                let char = s1[index];
+                // Определяем ASCII-код символа
+                let asciiCode = char.charCodeAt(0);
+                result += "🔤 " + n + "-й символ в s1: '" + char + "'<br>";
+                result += "💻 ASCII-код символа: " + asciiCode + "<br>";
+            } else {
+                result += " Ошибка: в строке s1 нет " + n + "-го символа (длина строки " + s1.length + ")<br>";
+            }
+            
+            // 3. Заменяем в s1 все "у" на "й"
+            let s1Modified = s1.replace(/у/g, "й");
+            
+            result += " Исходная строка s1: \"" + s1 + "\"<br>";
+            result += " После замены 'у' → 'й': \"" + s1Modified + "\"<br>";
+            
+            // Дополнительно выводим все строки для наглядности
+            result += "<br><b>Все строки:</b><br>";
+            result += "s1 = \"" + s1 + "\"<br>";
+            result += "s2 = \"" + s2 + "\"<br>";
+            
+            output.innerHTML = result;
+        }
+        
+        // Автоматический вывод при загрузке (для демонстрации)
+        console.log("Блочный скрипт (задания 2, 3, 5) загружен!");
+    </script>
+
+</body>
+</html>
